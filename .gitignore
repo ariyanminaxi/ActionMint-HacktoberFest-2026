@@ -3,6 +3,7 @@
 .env.*
 !.env.example
 !*.env.example
+!model/.env.model.example
 model/.env.model
 frontend/.env
 backend/.env
