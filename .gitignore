@@ -1,0 +1,67 @@
+# Secrets (never commit real values; examples stay blank)
+.env
+.env.*
+!.env.example
+!*.env.example
+model/.env.model
+frontend/.env
+backend/.env
+
+# Private project notes and planning (kept on disk, never public)
+/knowledge.md
+/brief.md
+/ASSETS.md
+/ASSET_PROMPTS.md
+/DECISIONS.md
+/FINAL_REPORT.md
+/FREEBUFF_PROMPT*.md
+/docs/*
+!/docs/screenshots/
+!/docs/screenshots/**/*.png
+
+# Tooling and local agent state
+.freebuff/
+.claude/
+.cursor/
+.idea/
+.vscode/
+_scratch/
+raw/
+model/ollama/
+
+# Dependencies and builds
+node_modules/
+dist/
+build/
+.venv/
+.venv*/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Test and browser output
+test-results/
+playwright-report/
+coverage/
+backend/data/index/
+
+# Media and data that must not ship
+*.wav
+*.mp3
+*.mp4
+*.webm
+*.bundle
+*.zip
+*.bak
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# TypeScript build info
+*.tsbuildinfo
