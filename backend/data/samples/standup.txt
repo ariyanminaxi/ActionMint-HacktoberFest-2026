@@ -1,0 +1,11 @@
+[00:00:05] Priya: Okay, let's start. Main topics today are the launch date and the pricing page.
+[00:00:20] Rahul: On the launch date, QA found two blockers in the payment flow. I think we shouldn't ship on the 28th.
+[00:00:41] Priya: Agreed. Let's move the launch to November 4th. That's decided.
+[00:00:55] Anita: I can fix the payment blockers. I'll have them done by Friday.
+[00:01:10] Priya: Great. Rahul, please re-run the full regression once Anita is done.
+[00:01:22] Rahul: Sure, I'll do that early next week.
+[00:01:40] Priya: For the pricing page, are we showing annual discounts? I'm not sure yet.
+[00:01:55] Anita: Not sure either. Someone should check with finance.
+[00:02:08] Priya: I'll ask finance and update the doc. No date for that yet.
+[00:02:30] Rahul: One risk: if the payment provider changes their API again, we slip further.
+[00:02:45] Priya: Noted. Let's sync again next Tuesday.

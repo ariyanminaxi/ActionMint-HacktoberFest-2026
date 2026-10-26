@@ -1,0 +1,16 @@
+SAMPLE_TRANSCRIPT = '''[00:00:05] Priya: Okay, let's start. Main topics today are the launch date and the pricing page.\n[00:00:20] Rahul: On the launch date, QA found two blockers in the payment flow. I think we shouldn't ship on the 28th.\n[00:00:41] Priya: Agreed. Let's move the launch to November 4th. That's decided.\n[00:00:55] Anita: I can fix the payment blockers. I'll have them done by Friday.\n[00:01:10] Priya: Great. Rahul, please re-run the full regression once Anita is done.\n[00:01:22] Rahul: Sure, I'll do that early next week.\n[00:01:40] Priya: For the pricing page, are we showing annual discounts? I'm not sure yet.\n[00:01:55] Anita: Not sure either. Someone should check with finance.\n[00:02:08] Priya: I'll ask finance and update the doc. No date for that yet.\n[00:02:30] Rahul: One risk: if the payment provider changes their API again, we slip further.\n[00:02:45] Priya: Noted. Let's sync again next Tuesday.'''
+
+def golden_spec(meeting_id: str, meeting_date: str, source: str = "transcript", title: str = "Launch readiness") -> dict:
+    return {
+      "meeting_id":meeting_id,"title":title,"meeting_date":meeting_date,"duration_s":170,"source":source,
+      "summary":{"tldr":"The team moved the launch to November 4 after QA found payment blockers; pricing discounts remain undecided.","bullets":["QA found two payment-flow blockers.","Launch was moved to November 4.","Anita will fix the blockers; Rahul will rerun regression afterward.","Annual pricing discounts remain an open question."]},
+      "topics":[{"label":"Launch date and payment blockers","start_segment":"S1"},{"label":"Pricing page","start_segment":"S7"}],
+      "decisions":[{"id":"d1","text":"Move the launch to November 4th.","decided_by":"Priya","evidence":["S3"],"verified":True,"confirmed":False}],
+      "action_items":[
+        {"id":"a1","task":"Fix the payment-flow blockers.","owner":"Anita","due_raw":"by Friday","due_iso":None,"due_resolved_from_relative":False,"note":None,"done":False,"evidence":["S4"],"verified":True,"confirmed":False},
+        {"id":"a2","task":"Re-run the full regression after the payment fixes.","owner":"Rahul","due_raw":"early next week","due_iso":None,"due_resolved_from_relative":False,"note":"After Anita completes the payment fixes.","done":False,"evidence":["S5","S6"],"verified":True,"confirmed":False},
+        {"id":"a3","task":"Ask finance about annual discounts and update the pricing document.","owner":"Priya","due_raw":None,"due_iso":None,"due_resolved_from_relative":False,"note":None,"done":False,"evidence":["S9"],"verified":True,"confirmed":False}],
+      "open_questions":[{"id":"q1","text":"Will the pricing page show annual discounts?","evidence":["S7"],"verified":True,"confirmed":False}],
+      "risks":[{"id":"r1","text":"A further payment-provider API change could delay the launch.","raised_by":"Rahul","evidence":["S10"],"verified":True,"confirmed":False}],
+      "follow_ups":{"next_meeting":"next Tuesday","notify":["Finance"]},
+      "attendees":[{"name":"Priya","talk_share":0.34,"joined_at_s":5},{"name":"Rahul","talk_share":0.34,"joined_at_s":20},{"name":"Anita","talk_share":0.32,"joined_at_s":55}],"edited":False,"warnings":[]}
