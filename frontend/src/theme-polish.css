@@ -1,0 +1,17 @@
+
+:root[data-theme="light"] .brand-period,
+:root[data-theme="light"] .text-link:hover,
+:root[data-theme="light"] .proof-strip strong,
+:root[data-theme="light"] .section-heading h2 span,
+:root[data-theme="light"] .secure-note svg,
+:root[data-theme="light"] .input-tab.active svg,
+:root[data-theme="light"] .inline-note svg,
+:root[data-theme="light"] .form-actions p svg,
+:root[data-theme="light"] .bullet-index,
+:root[data-theme="light"] .evidence-chip:hover,
+:root[data-theme="light"] .note-icon,
+:root[data-theme="light"] .meeting-bottom svg,
+:root[data-theme="light"] .processing-orbit,
+:root[data-theme="light"] .processing-steps .done,
+:root[data-theme="light"] .footer-note svg{color:var(--accent-text);}
+:root[data-theme="light"] .upload-zone:hover{border-color:var(--accent-text);}

@@ -1,0 +1,1 @@
+export function timeLabel(s:number|null|undefined){if(s==null)return '—';const n=Math.floor(s);return `${String(Math.floor(n/3600)).padStart(2,'0')}:${String(Math.floor((n%3600)/60)).padStart(2,'0')}:${String(n%60).padStart(2,'0')}`}

@@ -1,0 +1,10 @@
+export type SourceKind = 'transcript'|'upload'|'link';
+export type Segment = {id:string; start:number|null; end:number|null; speaker:string|null; text:string; final?:boolean};
+export type Summary = {tldr:string; bullets:string[]};
+export type Topic = {label:string; start_segment:string|null};
+export type Decision = {id:string;text:string;decided_by:string|null;evidence:string[];verified:boolean;confirmed:boolean};
+export type ActionItem = {id:string;task:string;owner:string|null;due_raw:string|null;due_iso:string|null;due_resolved_from_relative:boolean;note:string|null;done:boolean;evidence:string[];verified:boolean;confirmed:boolean};
+export type EvidenceItem = {id:string;text:string;evidence:string[];verified?:boolean;confirmed?:boolean};
+export type Risk = {id:string;text:string;raised_by:string|null;evidence:string[];verified?:boolean;confirmed?:boolean};
+export type MeetingSpec = {meeting_id:string;title:string;meeting_date:string;duration_s:number|null;source:SourceKind;summary:Summary;topics:Topic[];decisions:Decision[];action_items:ActionItem[];open_questions:EvidenceItem[];risks:Risk[];follow_ups:{next_meeting:string|null;notify:string[]};attendees:{name:string;talk_share:number|null;joined_at_s:number|null}[];edited:boolean;warnings:string[]};
+export type ApiError = {code?:string;message?:string};
