@@ -1,0 +1,10 @@
+{
+  "_comment": "No secrets in this file. Secrets live in model/.env.model (git-ignored) or in host env vars.",
+  "provider_chain": ["gemini", "groq", "ollama", "mock"],
+  "providers": {
+    "gemini": {"kind": "google-genai", "model": "gemma-4-26b-a4b-it", "first_token_timeout_s": 20, "request_timeout_s": 120, "max_tokens_cap": 2400},
+    "groq": {"kind": "openai_compatible_bearer", "model": "openai/gpt-oss-20b", "base_url": "https://api.groq.com/openai/v1", "first_token_timeout_s": 20, "request_timeout_s": 60, "max_tokens_cap": 900},
+    "ollama": {"kind": "openai_compatible", "model": "gemma4:e2b", "first_token_timeout_s": 20, "request_timeout_s": 120, "max_tokens_cap": 2200},
+    "mock": {"kind": "deterministic", "first_token_timeout_s": 1, "request_timeout_s": 5, "max_tokens_cap": 900}
+  }
+}

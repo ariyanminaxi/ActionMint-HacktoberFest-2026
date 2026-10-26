@@ -1,0 +1,48 @@
+services:
+  - type: web
+    name: actionmint-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips="*"
+    healthCheckPath: /health
+    plan: starter
+    envVars:
+      # Render's native Python runtime honours PYTHON_VERSION; the app is tested on 3.11 and 3.12.
+      - key: PYTHON_VERSION
+        value: "3.11.15"
+      - key: ENV
+        value: prod
+      - key: PROVIDER_CHAIN
+        value: gemini,groq,mock
+      - key: STT_BACKEND
+        value: mock
+      - key: MAX_MEDIA_MB
+        value: "10"
+      - key: MAX_MEDIA_MIN
+        value: "5"
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: APP_TOKEN
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+  - type: web
+    name: actionmint-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: corepack pnpm install --frozen-lockfile && corepack pnpm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

@@ -1,0 +1,3 @@
+# Asset pipeline only (scripts/keyout.py). Not used by the backend.
+pillow==12.1.1
+numpy==2.4.3
